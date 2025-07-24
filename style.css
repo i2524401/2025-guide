@@ -152,7 +152,7 @@ body {
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 9;
-    background: url('images/guide.png') no-repeat center/cover;
+    background: url('guide.png') no-repeat center/cover;
 }
 
 
@@ -292,7 +292,7 @@ body {
 /* Contact Section End */
 
 .contact-section {
-    background: url('images/letter.png') no-repeat center/cover;
+    background: url('letter.png') no-repeat center/cover;
     padding: 100px 20px 180px; 
     text-align: center;
     position: relative;
