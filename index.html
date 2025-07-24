@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie and Show</title>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="#mood">MOOD</a>
+            <a href="#guide">GUIDE</a>
+            <a href="#more">MORE</a>
+            <a href="#contact">CONTACT</a>
+        </nav>
+        <div class="hero">
+            <h1>MOVIE<br>AND<br>SHOW</h1>
+            <p class="subtext">made for those choosing a movie for the first time</p>
+        </div>
+    </header>
+
+    <!-- Mood Selection -->
+    <section id="mood" class="mood-selection">
+        <h2>Please Pick Your Mood</h2>
+        <div class="moods">
+            <a href="happy.html">
+                <img src="images/happy.png" alt="Happy" class="mood" />
+            </a>
+           <a href="futsu.html">
+                <img src="images/futsu.png" alt="Futsu" class="mood-icon">
+            </a>
+           <a href="sad.html">
+                <img src="images/sad.png" alt="Sad" class="mood" />
+            </a>
+        </div>
+    </section>
+
+    <!-- Viewing Guide -->
+    <section id="guide" class="viewing-guide">
+        <h2>Viewing Guide</h2>
+    </section>
+
+    <!-- Recommended Options -->
+    <section id="more" class="recommended">
+        <div class="recommended-container">
+            <a href="forest.html">
+              <img src="images/r1.png" alt="Forest Trail" class="recommend-img" />
+            </a>
+            <a href="car.html">
+              <img src="images/r2.png" alt="Classic Car" class="recommend-img" />
+            </a>
+            <a href="monti.html">
+              <img src="images/r3.png" alt="Monti Lessini" class="recommend-img" />
+            </a>
+            <a href="bianca.html">
+              <img src="images/r4.png" alt="Monte Bianca" class="recommend-img" />
+            </a>
+        </div>
+        <h2>Recommended Option</h2>
+    </section>
+
+    <!-- Tickets Section -->
+    <div class="tickets-wrapper">
+        <section class="tickets-section">
+            <div class="tickets-container">
+                <img src="images/t1.png" alt="Ticket 1" class="ticket-card" />
+                <img src="images/t2.png" alt="Ticket 2" class="ticket-card" />
+                <img src="images/t3.png" alt="Ticket 3" class="ticket-card" />
+                <img src="images/t4.png" alt="Ticket 4" class="ticket-card" />
+                <img src="images/t5.png" alt="Ticket 5" class="ticket-card" />
+                <img src="images/t6.png" alt="Ticket 6" class="ticket-card" />
+                <img src="images/t7.png" alt="Ticket 7" class="ticket-card" />
+                <img src="images/t8.png" alt="Ticket 8" class="ticket-card" />
+                <img src="images/t9.png" alt="Ticket 9" class="ticket-card" />
+                <img src="images/t10.png" alt="Ticket 10" class="ticket-card" />
+                <img src="images/t11.png" alt="Ticket 11" class="ticket-card" />
+                <img src="images/t12.png" alt="Ticket 12" class="ticket-card" />
+            </div>
+            <div class="see-more-container">
+                <a href="more.html" class="see-more-btn">SEE MORE</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>How to Contact Us</h2>
+        <div class="contact-card">
+            <p>ins: @classic_movie</p>
+            <p>x   : @classic_movie</p>
+            <a href="mailto:wachtingmovie@kougei.ac.jp" class="contact-email">
+                wachtingmovie@kougei.ac.jp
+            </a>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top">↑ TOP</button>
+
+    <!-- Scripts -->
+    <script>
+        // Ticket drag scroll
+        const container = document.querySelector('.tickets-container');
+        let isDown = false;
+        let startX, scrollLeft;
+
+        container.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+        });
+        container.addEventListener('mouseleave', () => isDown = false);
+        container.addEventListener('mouseup', () => isDown = false);
+        container.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - container.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            container.scrollLeft = scrollLeft - walk;
+        });
+
+        // Back to Top
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        const backgrounds = [
+         'images/back.png',
+         'images/back2.png',
+         'images/back3.png',
+         'images/back4.png'
+       ];
+
+        let currentIndex = 0;
+        const hero = document.querySelector('.hero');
+
+        function changeBackground() {
+         hero.style.backgroundImage = `url('${backgrounds[currentIndex]}')`;
+         currentIndex = (currentIndex + 1) % backgrounds.length;
+     }
+
+  // 初始设置
+         changeBackground();
+  // 每 2.5 秒切换
+         setInterval(changeBackground, 2500);
+
+    </script>
+</body>
+</html>

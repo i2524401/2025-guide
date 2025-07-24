@@ -1,0 +1,597 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.5;
+    background-color: #000;
+    color: #333;
+}
+
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: transparent;
+    color: #F0F0F0;
+    padding: 10px 0;
+    position: absolute;  /* 关键：叠在背景上 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.navbar a {
+    color: #F0F0F0;
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Header */
+.header {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: transparent; 
+    margin: 0;
+    padding: 0;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Black Ops One", sans-serif;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background-color: #000;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out;
+    color: #FFAA16;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    line-height: 1.2;
+    
+}
+
+.hero h1 {
+    margin: 0;
+}
+
+.hero h1 .top,
+.hero h1 .middle,
+.hero h1 .bottom {
+    display: block;
+}
+
+.hero h1 .middle {
+    font-size: 0.6em; /* AND 小一点 */
+    margin: 0.3em 0;
+}
+
+.hero span {
+    display: block;
+    font-size: 2rem;
+}
+
+.subtext {
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 1rem;
+    color: #A0A0A0;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+}
+
+/* Mood Section */
+.mood-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #D6A550;
+    width: 100%;
+    min-height: 490px;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    margin-top: 0;            /* 改为0，避免冲突 */
+    border-top: none;
+    position: relative;
+    z-index: 2;               /* 确保它在背景图下方可见 */
+}
+
+.mood-selection h2 {
+    color: #573636;
+    text-align: center;
+    font-family: "Black Ops One", sans-serif;
+    font-size: 3rem; /* 大屏标题更大 */
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 20px;
+}
+
+.moods {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* 图标间距 */
+    flex-wrap: wrap; /* 屏幕窄时换行 */
+}
+
+.moods img {
+    width: 120px;
+    margin: 0 40px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.moods img:hover {
+    transform: scale(1.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+
+/* Viewing Guide */
+.viewing-guide {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: url('images/guide.png') no-repeat center/cover;
+}
+
+
+.viewing-guide h2 {
+    color: #f6c453;
+    text-align: center;
+    font-family: "Black Ops One", sans-serif;
+    font-size: 3rem; 
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 40px;
+
+    position: relative;
+    top: 70px; /* 👈 让字整体向下偏移20px */
+}
+
+
+/* Recommended Section */
+.recommended {
+    background-color: #BB4954;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.recommended h2 {
+    color: #f6c453;
+    font-family: "Black Ops One", sans-serif;
+    font-size: 2.5rem;
+    margin-top: 30px;
+}
+
+.recommended-container {
+    display: flex;
+    flex-wrap: wrap; /* 手机时自动换行 */
+    justify-content: center;
+    gap: 20px; /* 图片间距 */
+    margin-bottom: 30px;
+}
+
+.recommend-img {
+    width: 200px; /* 默认宽度 */
+    max-width: 40vw; /* 自适应屏幕 */
+    border: 5px solid #fff; /* 白色边框 */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* 阴影 */
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.recommend-img:hover {
+    transform: scale(1.05); /* 悬停放大 */
+}
+
+
+/* Tickets */
+
+/* Wrapper for fade effects */
+.tickets-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.tickets-wrapper::before,
+.tickets-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 60px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.tickets-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, #656C2F, transparent);
+}
+
+.tickets-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, #656C2F, transparent);
+}
+
+/* Tickets Section */
+.tickets-section {
+    background-color: #64651F;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 30px 0 80px; /* 👈 底部多留空间给按钮 */
+}
+
+.tickets-container {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+    column-gap: 80px;
+    padding: 0 40px;
+}
+
+.ticket-card {
+    width: 220px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.ticket-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* See More Button */
+.see-more-container {
+    text-align: center;
+    margin-top: 40px; /* 👈 和票卡间距 */
+}
+
+.see-more-btn {
+    background-color: #BB4954; /* 按钮背景 */
+    color: #f6c453; /* 按钮字体颜色 */
+    font-family: "Black Ops One", sans-serif;
+    font-size: 2rem;
+    border: none;
+    border-radius: 50px; /* 圆角 */
+    padding: 15px 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.see-more-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Contact Section End */
+
+.contact-section {
+    background: url('images/letter.png') no-repeat center/cover;
+    padding: 100px 20px 180px; 
+    text-align: center;
+    position: relative;
+}
+
+.contact-section h2 {
+    font-family: "Black Ops One", sans-serif;
+    font-size: 3rem;
+    color: #f6c453;
+    margin-bottom: 40px;
+    position: relative;
+    top: -30px; /* 👈 往上移动20px */
+    z-index: 2;
+}
+
+
+.contact-card p {
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    color: #573636;
+    margin-bottom: 10px;
+}
+
+
+
+.contact-email {
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    color: #000;
+    text-decoration: underline;
+}
+
+.contact-email:hover {
+    color: #BB4954; /* 悬停变色 */
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    font-family: "Black Ops One", sans-serif;
+    background-color: #BB4954;
+    color: #f6c453;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    display: none; /* 默认隐藏 */
+    z-index: 999;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Emotion Page */
+.emotion-rating {
+    text-align: center;
+    padding: 50px 20px;
+    font-family: "Black Ops One", sans-serif;
+}
+
+.emotion-rating h2 {
+    font-size: 2.5rem;
+    color: #573636;
+    margin-bottom: 40px;
+}
+
+.rating-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px auto;
+    max-width: 700px;
+    font-family: "Black Ops One", sans-serif;
+}
+.rating-item img.ticket-card {
+    width: 180px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.smiley-ratings {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.smiley-ratings img {
+    width: 50px;
+}
+.smiley-ratings img.gray {
+    filter: grayscale(100%) brightness(80%);
+    opacity: 0.7;
+}
+.back-btn {
+    text-align: center; /* 👈 让 BACK 按钮居中 */
+    margin-top: 40px;
+}
+.back-btn a {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #4f772d;
+    color: #f6c453;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: "Black Ops One", sans-serif;
+}
+.back-btn a:hover {
+    background-color: #BB4954;
+}
+
+/* More */
+.more-movies {
+    background-color: #8A9350; /* 绿色背景 */
+    padding: 40px;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.more-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    margin-bottom: 40px;
+}
+
+.more-img {
+    width: 150px;
+    transition: transform 0.3s ease;
+}
+
+.more-img:hover {
+    transform: scale(1.1);
+}
+
+.back-btn {
+    display: inline-block;
+    background-color: #3B7A57;
+    color: #F6C453;
+    font-family: 'Black Ops One', sans-serif;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+
+
+/* Forest Trail Page */
+.movie-detail {
+    text-align: center;
+    padding: 50px 20px;
+    font-family: 'Black Ops One', sans-serif;
+}
+
+.movie-detail h1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+.movie-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.movie-poster {
+    width: 250px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.movie-text {
+    max-width: 400px;
+    text-align: left;
+}
+
+.movie-text h2 {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.movie-text p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.back-btn {
+    display: inline-block;
+    background-color: #357a38;
+    color: #f6c453;
+    font-size: 1.2rem;
+    font-family: 'Black Ops One', sans-serif;
+    padding: 10px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #2a5c2d;
+    transform: scale(1.1);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.movie-detail {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.movie-detail h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.movie-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.movie-poster {
+    width: 250px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.movie-text {
+    max-width: 500px;
+    text-align: left;
+}
+
+.movie-text h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.movie-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.stars {
+    color: #ffc107; /* gold stars */
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.back-btn {
+    display: inline-block;
+    background-color: #357a38;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #285a2c;
+}
+
+@media (max-width: 768px) {
+    .movie-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .movie-text {
+        text-align: center;
+    }
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero span {
+        font-size: 1.5rem;
+    }
+}
