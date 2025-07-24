@@ -153,15 +153,9 @@ body {
     width: 100%;
     aspect-ratio: 16 / 9;
     background: url('guide.png') no-repeat center/cover;
+    background-size: cover;
 }
 
-.guide-img {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    display: block;
-    margin: 20px auto;
-}
 
 
 .viewing-guide h2 {
