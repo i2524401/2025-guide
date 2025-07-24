@@ -155,6 +155,14 @@ body {
     background: url('guide.png') no-repeat center/cover;
 }
 
+.guide-img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
 
 .viewing-guide h2 {
     color: #f6c453;
